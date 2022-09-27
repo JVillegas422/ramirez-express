@@ -12,6 +12,27 @@ app.use(express.static('server/public'));
 
 const port = 3000;
 
+let comments = [
+    'Servers are neat!',
+    'Well akhshully',
+    'They are not..'
+];
+
+// Like an "Event Handler"
+// When Jimmy asks for comments
+// call this function
+app.get('/comments', (req, res) => {
+    console.log('Jimmy wants those comments!');
+
+    res.send(comments);
+});
+
+app.get('/comments/first', (req, res) => {
+    console.log('In comments/first!');
+
+    res.send(comments[0]);
+});
+
 app.listen(port, () => {
     console.log('listening on port', port);
   });
